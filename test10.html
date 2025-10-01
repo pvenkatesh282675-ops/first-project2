@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday — Franky</title>
+  <style>
+    :root{
+      --bg1:#fff0f6;
+      --bg2:#ffe6f0;
+      --card:#ffffffcc;
+      --accent:#ff4d8a;
+      --muted:#333;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      background-size:300% 300%;
+      animation: bgShift 10s ease infinite;
+    }
+    @keyframes bgShift{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    .card{
+      width:100%;
+      max-width:820px;
+      border-radius:18px;
+      padding:36px;
+      background:var(--card);
+      box-shadow:0 14px 40px rgba(0,0,0,0.12);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    h1{
+      font-size:3rem;
+      color:var(--accent);
+      margin-bottom:8px;
+      letter-spacing:0.5px;
+      animation: float 2s ease-in-out infinite;
+    }
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-6px)}
+    }
+
+    p.lead{
+      font-size:1.25rem;
+      color:var(--muted);
+      margin-bottom:12px;
+    }
+
+    .message{
+      font-weight:600;
+      font-size:1.05rem;
+      color:#222;
+      margin-bottom:18px;
+    }
+
+    .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      padding:10px 16px;
+      border-radius:10px;
+      border:0;
+      background:var(--accent);
+      color:white;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(0,0,0,0.12);
+    }
+    .btn.alt{
+      background:transparent;
+      color:var(--accent);
+      border:2px solid rgba(255,77,138,0.18);
+    }
+
+    .confetti{position:absolute;inset:0;pointer-events:none}
+    .confetti i{
+      position:absolute;font-style:normal;opacity:0.95;transform:translateY(120%);
+      animation: rise linear infinite; font-size:20px;
+    }
+    @keyframes rise{
+      0%{transform:translateY(120%) rotate(0)}
+      100%{transform:translateY(-40%) rotate(360deg)}
+    }
+
+    @media (max-width:520px){
+      h1{font-size:2rem}
+      .card{padding:22px}
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="main" aria-label="Happy Birthday card for Franky">
+    <h1>🫂 Franky valentina 🫂</h1>
+
+    <!-- exact user message (kept spacing) -->
+    <p class="lead">&nbsp;&nbsp; Get well soon Franky " Missing your smile , Hoping you Heal Fast 🌷✨</p>
+
+    <div class="message"> Get well soon dear, It really pains me to see you sick -- I just want to see you smiling and happy again 🥳</div>
+
+    <div class="btns" aria-hidden="false">
+      <button class="btn" onclick="shareCard()">Share</button>
+      <button class="btn alt" onclick="window.print()">Print</button>
+    </div>
+
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+  </div>
+
+  <script>
+    
+    
+    function shareCard(){
+      const text = "Franky  Wishing you lots of love, joy, and happiness on your special day";
+      if(navigator.share){
+        navigator.share({title:'Happy Birthday — Franky', text}).catch(()=>{});
+      } else if(navigator.clipboard){
+        navigator.clipboard.writeText(text).then(()=>{ alert('Message copied to clipboard!') }).catch(()=>{ fallbackCopy(text) });
+      } else {
+        fallbackCopy(text);
+      }
+      function fallbackCopy(t){ prompt('Copy and share this message:', t); }
+    }
+  </script>
+</body>
+</html>
