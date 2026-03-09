@@ -1,7 +1,7 @@
 # Python Learning Repository 🐍
 
 **Created by: Syed Ali Hashmi**  
-**LinkedIn: [https://www.linkedin.com/in/hashmiali2288](https://www.linkedin.com/in/hashmiali2288)**
+**LinkedIn: [https://www.linkedin.com/in/p-venkatesh1](https://www.linkedin.com/in/p-venkatesh1)**
 
 A comprehensive Python learning resource with practical examples, clear explanations, and hands-on projects.
 
@@ -58,5 +58,6 @@ A comprehensive Python learning resource with practical examples, clear explanat
 - ✅ Progressive difficulty levels
 - ✅ Practical projects and exercises
 - ✅ Best practices and conventions
+
 
 Happy Learning! 🎉
